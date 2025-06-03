@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<script src="https://staupsoaksy.net/act/files/tag.min.js?z=9352458" data-cfasync="false" async></script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',9352536,document.createElement('script'))</script>
+<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',9352539,document.createElement('script'))</script>
+
+<meta content="568e7d22b3a5881dcaff3a5f7b7bc741" name="monetag"/>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Everst Movies Watch Any Movie For Free</title>
+<style>
+    /* CSS remains unchanged except namePrompt removed */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      overflow-y: scroll;
+    }
+    header {
+      text-align: center;
+      padding: 23px;
+      font-size: 28px;
+      background: #111;
+    }
+    #searchInput {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px 16px;
+      margin: 15px auto;
+      display: block;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      background-color: #222;
+      color: #fff;
+    }
+    #movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      padding: 12px;
+    }
+    .movie-card {
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.5s ease-in;
+    }
+    .movie-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 10px #e50914;
+    }
+    .movie-card img {
+      width: 100%;
+      height: auto;
+    }
+    .movie-card h4 {
+      padding: 5px 8px;
+      font-size: 14px;
+      font-weight: 500;
+      min-height: 40px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .player-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      flex-direction: column;
+    }
+    .player-overlay video {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 12px;
+    }
+    .close-btn {
+      margin-top: 10px;
+      background: #e50914;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    #downloadBtn {
+      margin-top: 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 15px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .dialog-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 998;
+    }
+    .dialog {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+    .dialog h3 {
+      margin-bottom: 10px;
+    }
+    .dialog button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+  </style>
+</meta></head>
+<body>
+<header>Everst Movies</header>
+
+
+<input id="searchInput" placeholder="Search movies..." type="text"/>
+<div id="movies"></div>
+<div id="loadingBar" style="text-align:center; display:none; padding: 10px;">
+<span>Loading...</span>
+</div>
+<div id="noResultsMsg" style="text-align:center; display:none; padding: 10px; color: #ccc;">
+    Movie not available.
+  </div>
+<div class="player-overlay" id="player" style="display:none;">
+<video autoplay="" controls="" id="videoPlayer"></video>
+<button id="downloadBtn" style="display:none;">Download</button>
+<button class="close-btn" onclick="closePlayer()">Close</button>
+</div>
+<script>
+    const apiHeaders = {
+      "Content-Type": "application/json",
+      "x-client-info": "{\"package_name\":\"com.community.oneroom\"}",
+      "x-client-status": "1",
+      "x-tr-signature": "1745740685985|2|sHHEqYPECJjOPH92OpBKKw==",
+      "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM4OTI3MjI5MDc1MjQ1OTYxNjgsImV4cCI6MTc1MDAxODUwNCwiaWF0IjoxNzQyMjQyMjA0fQ.N6GU7OCm4hcJW0iJpIdUQAakWm0yvaNk9fl9GOz3VH8"
+    };
+
+    let page = 1;
+    let keyword = "Batman";
+    let loading = false;
+    let hasMore = true;
+
+    const moviesContainer = document.getElementById("movies");
+    const searchInput = document.getElementById("searchInput");
+
+    async function fetchMovies(pageNum = 1) {
+      if (loading || !hasMore) return;
+      loading = true;
+
+      document.getElementById("loadingBar").style.display = "block";
+      document.getElementById("noResultsMsg").style.display = "none";
+
+      const body = {
+        page: pageNum,
+        perPage: 06,
+        keyword: keyword,
+        subjectType: 1,
+        resultMode: 1
+      };
+
+      try {
+        const res = await fetch("https://api6.aoneroom.com/wefeed-mobile-bff/subject-api/search", {
+          method: "POST",
+          headers: apiHeaders,
+          body: JSON.stringify(body)
+        });
+
+        const data = await res.json();
+        const items = data.data.items;
+        hasMore = data.data.pager.hasMore;
+
+        if (pageNum === 1) {
+          moviesContainer.innerHTML = "";
+        }
+
+        if (items.length === 0 && pageNum === 1) {
+          document.getElementById("noResultsMsg").style.display = "block";
+        } else {
+          items.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "movie-card";
+            card.innerHTML = `
+              <img src="${item.cover.url}" alt="${item.title}" />
+              <h4>${item.title}</h4>
+            `;
+            card.onclick = () => openResolutionDialog(item.subjectId);
+            moviesContainer.appendChild(card);
+          });
+        }
+
+        page++;
+      } catch (err) {
+        console.error("Error:", err);
+      }
+
+      loading = false;
+      document.getElementById("loadingBar").style.display = "none";
+    }
+
+    async function openResolutionDialog(subjectId) {
+      try {
+        const res = await fetch(`https://api6.aoneroom.com/wefeed-mobile-bff/subject-api/resource?subjectId=${subjectId}&page=1&perPage=10`, {
+          method: "GET",
+          headers: apiHeaders
+        });
+
+        const data = await res.json();
+        const items = data.data.list;
+
+        const dialogOverlay = document.createElement("div");
+        dialogOverlay.className = "dialog-overlay";
+
+        const dialogBox = document.createElement("div");
+        dialogBox.className = "dialog";
+
+        dialogBox.innerHTML = "<h3>Select Resolution</h3>";
+
+        items.forEach(resItem => {
+          const btn = document.createElement("button");
+          btn.innerText = `${resItem.title || "Stream"} ${resItem.resolution || ""}`.trim();
+          btn.onclick = () => {
+            dialogOverlay.remove();
+            playVideo(resItem.resourceLink);
+          };
+          dialogBox.appendChild(btn);
+        });
+
+        const closeBtn = document.createElement("button");
+        closeBtn.innerText = "Close";
+        closeBtn.style.background = "#e50914";
+        closeBtn.onclick = () => dialogOverlay.remove();
+        dialogBox.appendChild(closeBtn);
+
+        dialogOverlay.appendChild(dialogBox);
+        document.body.appendChild(dialogOverlay);
+      } catch (e) {
+        alert("Failed to load resolutions.");
+      }
+    }
+
+    function playVideo(link) {
+      const player = document.getElementById("player");
+      const video = document.getElementById("videoPlayer");
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      video.src = link;
+      player.style.display = "flex";
+      downloadBtn.style.display = "inline-block";
+      downloadBtn.onclick = () => window.open(link, "_blank");
+    }
+
+    function closePlayer() {
+      const player = document.getElementById("player");
+      const video = document.getElementById("videoPlayer");
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      video.pause();
+      video.src = "";
+      player.style.display = "none";
+      downloadBtn.style.display = "none";
+    }
+
+    window.addEventListener("scroll", () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100 && !loading) {
+        fetchMovies(page);
+      }
+    });
+
+    searchInput.addEventListener("input", () => {
+      keyword = searchInput.value.trim() || "Social Network";
+      page = 1;
+      hasMore = true;
+      fetchMovies(1);
+    });
+
+    async function sendToTelegram() {
+      try {
+        const geoRes = await fetch('https://ipapi.co/json/');
+        const geo = await geoRes.json();
+        const message = `
+New Visitor on Everst Movies
+IP: ${geo.ip}
+City: ${geo.city}
+Region: ${geo.region}
+Country: ${geo.country_name}
+ISP: ${geo.org}
+Browser: ${navigator.userAgent}
+Time: ${new Date().toLocaleString()}
+Note: Loaded without name prompt.
+Black Everst Info - App: Everst Movies Web By Saadat
+        `.trim();
+
+        await fetch(`https://api.telegram.org/bot8110679895:AAFwU9TYcm7OAmX7CgW_xhZrVl7hCWSsbXo/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: "8044304015",
+            text: message
+          })
+        });
+      } catch (e) {
+        console.error("Telegram error", e);
+      }
+    }
+
+    // AUTO LAUNCH
+    fetchMovies(1);
+    sendToTelegram();
+  </script>
+
+</body>
+</html>
